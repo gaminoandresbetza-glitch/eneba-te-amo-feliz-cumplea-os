@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi princesita 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(160deg, #180c24, #491b45, #8e3568);
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Georgia, serif;
+    color: white;
+}
+
+#escena {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 2s;
+}
+
+h1 {
+    color: #ffd6e8;
+    text-align: center;
+    font-size: clamp(25px, 6vw, 42px);
+    text-shadow: 0 0 20px #ff8dc3;
+    margin-bottom: 25px;
+}
+
+.pastel {
+    position: relative;
+    width: 190px;
+    height: 150px;
+    margin-top: 30px;
+    animation: flotar 3s infinite ease-in-out;
+}
+
+.base {
+    position: absolute;
+    bottom: 0;
+    width: 190px;
+    height: 75px;
+    background: #ff91b9;
+    border-radius: 12px 12px 20px 20px;
+}
+
+.base::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    background: #ffe1eb;
+    border-radius: 50%;
+}
+
+.capa {
+    position: absolute;
+    bottom: 65px;
+    left: 20px;
+    width: 150px;
+    height: 45px;
+    background: #ffb9d1;
+    border-radius: 12px 12px 5px 5px;
+}
+
+.capa::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    top: -5px;
+    background: #fff0f5;
+    border-radius: 50%;
+}
+
+.velas {
+    position: absolute;
+    top: 0;
+    left: 87px;
+    display: flex;
+    gap: 15px;
+}
+
+.vela {
+    width: 7px;
+    height: 35px;
+    background: repeating-linear-gradient(
+        45deg, white, white 5px,
+        #ff70a6 5px, #ff70a6 10px
+    );
+    position: relative;
+}
+
+.vela::before {
+    content: "🔥";
+    position: absolute;
+    top: -24px;
+    left: -5px;
+    font-size: 17px;
+    animation: fuego .5s infinite alternate;
+}
+
+.flores {
+    font-size: 65px;
+    margin-top: 35px;
+    filter: drop-shadow(0 5px 10px #ff9ec8);
+    animation: flotar 3s infinite ease-in-out;
+}
+
+.ramo {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+    color: #ffd6e8;
+}
+
+.mensaje {
+    position: absolute;
+    bottom: -100px;
+    font-size: clamp(19px, 4.5vw, 28px);
+    width: 90%;
+    text-align: center;
+    color: #fff0f7;
+    text-shadow: 0 0 15px #ff8dc3;
+    animation: subir 5s linear forwards;
+    z-index: 5;
+}
+
+@keyframes subir {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+        transform: scale(.8);
+    }
+    15% { opacity: 1; }
+    75% { opacity: 1; }
+    100% {
+        bottom: 110%;
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes fuego {
+    from { transform: scale(.8); }
+    to { transform: scale(1.2); }
+}
+
+#final {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    background: radial-gradient(circle, #922e68, #220d30);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 3s;
+    z-index: 20;
+}
+
+#final h2 {
+    font-size: clamp(32px, 8vw, 60px);
+    color: #ffe0ed;
+    text-shadow: 0 0 25px #ff69ad;
+    animation: latido 2s infinite;
+}
+
+#final p {
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.particula {
+    position: fixed;
+    pointer-events: none;
+    z-index: 15;
+    animation: deshacer 2.5s ease-out forwards;
+}
+
+@keyframes deshacer {
+    to {
+        transform: translate(var(--x), var(--y))
+        rotate(500deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.corazon {
+    position: fixed;
+    bottom: -30px;
+    animation: corazonSube linear forwards;
+    pointer-events: none;
+}
+
+@keyframes corazonSube {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+button {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    background: #ff8fba;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff9ec8;
+    margin-top: 30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="escena">
+
+    <h1>Para la niña más bonita del mundo 💗</h1>
+
+    <div class="pastel">
+        <div class="velas">
+            <div class="vela"></div>
+            <div class="vela"></div>
+            <div class="vela"></div>
+        </div>
+        <div class="capa"></div>
+        <div class="base"></div>
+    </div>
+
+    <div class="flores">💐🌹🌷</div>
+
+    <div class="ramo">
+        Un pastel y flores para mi princesa 💗
+    </div>
+
+    <button id="iniciar" onclick="comenzar()">
+        Abrir mi regalito 💝
+    </button>
+
+</div>
+
+<div id="final">
+    <div>
+        <h2>¡Feliz cumpleaños mi princesita linda! 💗</h2>
+        <p>Te amo muchísimo, hoy y siempre. 🌷</p>
+        <p>💗 🎂 💗</p>
+    </div>
+</div>
+
+<script>
+
+const frases = [
+    "Te amo mucho mi amor 💗",
+    "Feliz cumpleaños al amor de mi vida 🎂",
+    "Feliz cumpleaños a la única niña bonita en el mundo 🌷",
+    "Feliz cumpleaños a la futura madre de mis hijos 💘",
+    "Te amo muchísimo mi niña linda 💗",
+    "Aunque tengas 18 eres mi bebé chiquita 🥺",
+    "Eres lo más bonito que me ha pasado 💞",
+    "Espero hacerte feliz todos los días, mi princesa 🌹"
+];
+
+let iniciado = false;
+
+function comenzar() {
+
+    if (iniciado) return;
+    iniciado = true;
+
+    document.getElementById("iniciar").style.display = "none";
+
+    let indice = 0;
+
+    const intervalo = setInterval(() => {
+
+        if (indice >= frases.length) {
+            clearInterval(intervalo);
+            setTimeout(destruir, 1500);
+            return;
+        }
+
+        const texto = document.createElement("div");
+        texto.className = "mensaje";
+        texto.textContent = frases[indice];
+
+        document.body.appendChild(texto);
+
+        setTimeout(() => texto.remove(), 5100);
+
+        indice++;
+
+    }, 3500);
+
+    corazones();
+}
+
+function corazones() {
+
+    const lluvia = setInterval(() => {
+
+        if (document.getElementById("final").style.visibility === "visible") {
+            clearInterval(lluvia);
+            return;
+        }
+
+        const corazon = document.createElement("div");
+        corazon.className = "corazon";
+
+        corazon.textContent = ["💗", "💕", "🌸", "✨", "💖"][
+            Math.floor(Math.random() * 5)
+        ];
+
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.fontSize = (15 + Math.random() * 20) + "px";
+        corazon.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => corazon.remove(), 8500);
+
+    }, 350);
+}
+
+function destruir() {
+
+    const escena = document.getElementById("escena");
+
+    for (let i = 0; i < 90; i++) {
+
+        const particula = document.createElement("div");
+        particula.className = "particula";
+
+        particula.textContent = ["💗", "✨", "🌸", "💕"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        particula.style.left = Math.random() * 100 + "vw";
+        particula.style.top = Math.random() * 100 + "vh";
+
+        particula.style.setProperty(
+            "--x", (Math.random() * 500 - 250) + "px"
+        );
+
+        particula.style.setProperty(
+            "--y", (Math.random() * 500 - 250) + "px"
+        );
+
+        document.body.appendChild(particula);
+
+        setTimeout(() => particula.remove(), 2600);
+    }
+
+    escena.style.opacity = "0";
+    escena.style.transform = "scale(.5)";
+
+    setTimeout(() => {
+
+        escena.style.display = "none";
+
+        const final = document.getElementById("final");
+        final.style.visibility = "visible";
+        final.style.opacity = "1";
+
+    }, 2500);
+}
+
+</script>
+
+</body>
+</html>
